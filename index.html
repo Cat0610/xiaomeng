@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>小孟花店｜台中潭子區鮮花・花束・花藝設計</title>
+<meta name="description" content="小孟花店，台中市潭子區豐富路101號。專業花束設計、節慶花藝、婚禮佈置，用每一朵花傳遞你的心意。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Noto+Serif+TC:wght@300;400;500;600&family=Cormorant+Infant:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --rose:       #c0585a;
+  --rose-l:     #d4787a;
+  --rose-pale:  #f5e8e8;
+  --rose-deep:  #8b3a3c;
+  --green:      #5a7a52;
+  --green-l:    #7a9a72;
+  --green-pale: #eaf2e8;
+  --cream:      #fdf8f2;
+  --cream-2:    #f8f0e6;
+  --cream-3:    #f0e4d4;
+  --white:      #ffffff;
+  --brown:      #3d2410;
+  --brown-mid:  #6b4226;
+  --brown-l:    #9a6a48;
+  --text:       #2c1a0e;
+  --text-sub:   #6b4226;
+  --text-muted: #a07858;
+  --border:     rgba(192,88,90,0.14);
+  --border-m:   rgba(192,88,90,0.3);
+  --grad-rose:  linear-gradient(135deg, #c0585a, #d4787a);
+  --grad-warm:  linear-gradient(135deg, #c0585a, #b8763a);
+  --gap:        96px;
+  --r:          18px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--text);
+  font-family: 'Noto Serif TC', serif;
+  line-height: 1.85;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--cream-2); }
+::-webkit-scrollbar-thumb { background: var(--rose); border-radius: 2px; }
+
+.petal-bg {
+  position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 0;
+}
+
+.site-header {
+  background: linear-gradient(160deg, #fff 0%, #fdf5f0 50%, #faeee6 100%);
+  padding: 56px 24px 52px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+
+.site-header::after {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, #d4b4b4, #c0585a, #d4787a, #c0585a, #d4b4b4);
+}
+
+.header-inner {
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column; align-items: center; gap: 14px;
+}
+
+.header-petals {
+  position: absolute; inset: 0; pointer-events: none;
+}
+.petal {
+  position: absolute;
+  opacity: 0.12;
+  animation: floatPetal linear infinite;
+}
+.petal svg { fill: var(--rose); }
+
+@keyframes floatPetal {
+  0%   { transform: translateY(0) rotate(0deg); opacity: 0; }
+  10%  { opacity: 0.12; }
+  90%  { opacity: 0.08; }
+  100% { transform: translateY(-120px) rotate(360deg); opacity: 0; }
+}
+
+.header-badge {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 5px 20px;
+  font-size: 0.68rem;
+  color: var(--brown-l);
+  letter-spacing: 0.32em;
+  font-family: 'Cormorant Infant', serif;
+  box-shadow: 0 2px 12px rgba(192,88,90,0.1);
+}
+
+.header-logo-wrap {
+  position: relative; display: inline-block;
+  margin: 8px 0 6px;
+  filter: drop-shadow(0 10px 24px rgba(192,88,90,0.22));
+}
+
+.logo-circle {
+  width: 130px; height: 130px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f8e8e8 0%, #fdf0f0 50%, #f2e0e0 100%);
+  border: 4px solid #fff;
+  box-shadow: 0 0 0 4px rgba(192,88,90,0.22), 0 24px 44px rgba(192,88,90,0.2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 3.5rem;
+  transition: transform 0.4s ease;
+}
+.logo-circle:hover { transform: scale(1.05) rotate(5deg); }
+
+.logo-ring {
+  position: absolute; inset: -12px;
+  border-radius: 50%;
+  border: 2px dashed rgba(192,88,90,0.3);
+  animation: spinSlow 20s linear infinite;
+}
+@keyframes spinSlow { to { transform: rotate(360deg); } }
+
+.header-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 7vw, 3.4rem);
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.1em;
+  line-height: 1.1;
+}
+.header-title span {
+  font-style: italic; font-weight: 400;
+  background: var(--grad-rose);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+
+.header-en {
+  font-family: 'Cormorant Infant', serif;
+  font-size: 0.95rem; font-weight: 300; font-style: italic;
+  color: var(--rose-l); letter-spacing: 0.28em;
+  opacity: 0.85;
+}
+
+.header-tagline {
+  font-size: 0.82rem; font-weight: 500;
+  color: var(--brown-mid); letter-spacing: 0.16em;
+}
+
+.header-rating {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--white);
+  border: 1px solid rgba(192,88,90,0.22);
+  border-radius: 999px;
+  padding: 7px 22px;
+  font-size: 0.82rem; font-weight: 500;
+  color: var(--text-sub);
+  box-shadow: 0 4px 16px rgba(192,88,90,0.1);
+}
+.stars-sm { color: var(--rose); font-size: 0.75rem; letter-spacing: 2px; }
+
+.floral-orn {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 0.56rem; letter-spacing: 0.35em; color: var(--rose-l);
+}
+.floral-orn::before, .floral-orn::after {
+  content: ''; flex: 44px 0 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(192,88,90,0.45));
+}
+.floral-orn::after { background: linear-gradient(90deg, rgba(192,88,90,0.45), transparent); }
+
+.services-strip {
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 15px 24px;
+  box-shadow: 0 2px 14px rgba(192,88,90,0.06);
+}
+.services-inner {
+  max-width: 900px; margin: 0 auto;
+  display: flex; flex-wrap: wrap;
+  justify-content: center; gap: 7px;
+}
+.service-pill {
+  color: var(--brown-mid);
+  font-size: 0.74rem; letter-spacing: 0.08em;
+  padding: 6px 16px;
+  border: 1px solid var(--border);
+  border-radius: 999px; white-space: nowrap;
+  transition: all 0.25s;
+  background: rgba(192,88,90,0.04);
+  cursor: default;
+}
+.service-pill:hover {
+  background: rgba(192,88,90,0.1);
+  border-color: var(--rose); color: var(--rose);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(192,88,90,0.15);
+}
+
+.gallery-section {
+  background: var(--cream-2);
+  padding: var(--gap) 20px;
+  position: relative;
+}
+.gallery-section::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(192,88,90,0.3), transparent);
+}
+
+.gallery-wrapper { max-width: 920px; margin: 0 auto; }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 6px;
+  border-radius: 16px; overflow: hidden;
+  box-shadow: 0 20px 60px rgba(192,88,90,0.12), 0 0 0 1px rgba(192,88,90,0.08);
+}
+
+.gallery-item {
+  position: relative; overflow: hidden; cursor: pointer;
+  background: var(--cream-3);
+}
+.gallery-item:first-child { grid-column: span 2; grid-row: span 2; }
+
+.flower-placeholder {
+  width: 100%; display: block;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+.gallery-item:first-child .flower-placeholder { aspect-ratio: 4/3.5; }
+
+.gallery-item svg.fp {
+  width: 100%; height: 100%;
+  display: block;
+  min-height: 150px;
+  transition: transform 0.65s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.gallery-item:hover svg.fp { transform: scale(1.06); }
+
+.gallery-overlay {
+  position: absolute; inset: 0;
+  background: rgba(140,40,42,0);
+  transition: background 0.35s;
+  display: flex; align-items: center; justify-content: center;
+}
+.gallery-item:hover .gallery-overlay { background: rgba(140,40,42,0.2); }
+.gallery-overlay span {
+  color: #fff; font-size: 0.75rem; font-weight: 700;
+  letter-spacing: 0.14em; opacity: 0;
+  transition: opacity 0.3s; text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+.gallery-item:hover .gallery-overlay span { opacity: 1; }
+
+.section { padding: var(--gap) 28px; max-width: 900px; margin: 0 auto; }
+
+.section-eyebrow {
+  font-family: 'Cormorant Infant', serif;
+  font-size: clamp(1.1rem, 3.5vw, 1.6rem);
+  font-weight: 300; font-style: italic;
+  background: var(--grad-rose);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  text-align: center; margin-bottom: 6px;
+  letter-spacing: 0.08em;
+}
+.section-title-zh {
+  font-size: clamp(1.05rem, 3vw, 1.4rem);
+  font-weight: 700; color: var(--text);
+  text-align: center; margin-bottom: 26px;
+  letter-spacing: 0.04em; line-height: 1.5;
+  font-family: 'Playfair Display', serif;
+}
+.section-divider {
+  display: flex; align-items: center; gap: 12px;
+  margin: 0 auto 44px; max-width: 200px;
+}
+.section-divider::before, .section-divider::after {
+  content: ''; flex: 1; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--rose));
+}
+.section-divider::after { background: linear-gradient(90deg, var(--rose), transparent); }
+.section-divider span { color: var(--rose); font-size: 0.85rem; }
+
+.about-section { background: var(--white); position: relative; }
+.about-section::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--rose) 40%, var(--rose-l) 60%, transparent);
+  opacity: 0.22;
+}
+
+.trust-badges {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 28px 0;
+}
+.trust-badge {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 12px; padding: 18px 12px;
+  text-align: center; transition: all 0.25s;
+  position: relative; overflow: hidden;
+}
+.trust-badge::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: var(--grad-rose); opacity: 0; transition: opacity 0.25s;
+}
+.trust-badge:hover { background: var(--rose-pale); border-color: var(--border-m); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(192,88,90,0.12); }
+.trust-badge:hover::before { opacity: 1; }
+.trust-badge .tb-icon { font-size: 1.5rem; margin-bottom: 7px; display: block; }
+.trust-badge .tb-value { font-family: 'Playfair Display', serif; font-size: 1.9rem; font-weight: 600; color: var(--rose); line-height: 1; display: block; }
+.trust-badge .tb-label { font-size: 0.7rem; color: var(--text-muted); margin-top: 4px; display: block; }
+
+.about-lead { font-size: 0.97rem; color: var(--text-sub); line-height: 2.05; margin-bottom: 20px; }
+.about-lead strong { color: var(--text); }
+
+.about-quote {
+  position: relative; padding: 22px 28px; margin: 32px 0;
+  background: linear-gradient(135deg, rgba(192,88,90,0.05), rgba(212,120,122,0.02));
+  border-left: 2px solid var(--rose);
+  border-radius: 0 14px 14px 0;
+  font-style: italic; color: var(--text-sub);
+  font-size: 0.95rem; line-height: 1.95;
+  font-family: 'Cormorant Infant', serif;
+}
+.about-quote::before {
+  content: '\201C';
+  position: absolute; top: -6px; left: 14px;
+  font-family: 'Playfair Display', serif;
+  font-size: 5rem; color: var(--rose);
+  opacity: 0.12; line-height: 1;
+}
+.about-quote strong {
+  display: block; color: var(--rose);
+  font-style: normal; font-size: 0.72rem;
+  letter-spacing: 0.18em; margin-bottom: 8px; text-transform: uppercase;
+  font-family: 'Noto Serif TC', serif;
+}
+
+.info-card {
+  background: var(--cream);
+  border: 1px solid var(--border); border-radius: var(--r);
+  padding: 24px 26px; margin: 28px 0;
+  box-shadow: 0 4px 20px rgba(192,88,90,0.07);
+}
+.info-row {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 10px 0; font-size: 0.92rem; color: var(--text-sub);
+  border-bottom: 1px solid rgba(192,88,90,0.08);
+}
+.info-row:last-child { border-bottom: none; padding-bottom: 0; }
+.info-icon { font-size: 1rem; flex-shrink: 0; margin-top: 3px; }
+.info-row a { color: var(--rose); text-decoration: none; font-weight: 600; }
+.info-row a:hover { color: var(--rose-deep); }
+.info-row strong { color: var(--text); }
+
+.products-section { background: var(--cream-2); position: relative; }
+.products-section::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--rose) 40%, var(--rose-l) 60%, transparent);
+  opacity: 0.18;
+}
+
+.products-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.product-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 26px 22px;
+  transition: all 0.28s; position: relative; overflow: hidden;
+  box-shadow: 0 2px 12px rgba(192,88,90,0.05);
+}
+.product-card::before {
+  content: ''; position: absolute; top: 0; left: 0; bottom: 0; width: 3px;
+  background: var(--grad-rose); opacity: 0; transition: opacity 0.28s;
+}
+.product-card:hover { background: var(--rose-pale); border-color: var(--border-m); transform: translateX(4px); box-shadow: 0 10px 32px rgba(192,88,90,0.1); }
+.product-card:hover::before { opacity: 1; }
+.product-card-icon { font-size: 2rem; margin-bottom: 12px; display: block; }
+.product-card-title { font-size: 0.9rem; font-weight: 700; color: var(--text); margin-bottom: 8px; letter-spacing: 0.04em; font-family: 'Playfair Display', serif; }
+.product-card-body { font-size: 0.84rem; color: var(--text-sub); line-height: 1.8; }
+.product-card-body strong { color: var(--rose); font-weight: 600; }
+
+.reviews-section { background: var(--white); position: relative; }
+.reviews-section::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--rose) 40%, var(--rose-l) 60%, transparent);
+  opacity: 0.18;
+}
+
+.review-agg {
+  display: flex; align-items: center; justify-content: center; gap: 20px;
+  background: var(--cream);
+  border: 1px solid rgba(192,88,90,0.2);
+  border-radius: 12px; padding: 18px 28px; margin-bottom: 32px;
+  box-shadow: 0 2px 12px rgba(192,88,90,0.07);
+}
+.big-rating { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 600; color: var(--rose); line-height: 1; }
+.big-stars { color: var(--rose); font-size: 1rem; letter-spacing: 3px; }
+.agg-detail { font-size: 0.72rem; color: var(--text-muted); margin-top: 2px; }
+.agg-desc { font-size: 0.82rem; color: var(--text-sub); max-width: 180px; text-align: left; line-height: 1.7; }
+
+.reviews-grid { display: grid; gap: 14px; }
+.review-card {
+  background: var(--cream);
+  border: 1px solid var(--border); border-radius: var(--r);
+  padding: 26px 24px 22px; position: relative;
+  transition: all 0.25s; overflow: hidden;
+}
+.review-card::before {
+  content: '\201C'; position: absolute; top: 4px; right: 16px;
+  font-family: 'Playfair Display', serif; font-size: 4.5rem;
+  color: var(--rose); opacity: 0.1; line-height: 1; pointer-events: none;
+}
+.review-card::after {
+  content: ''; position: absolute; bottom: 0; left: 0;
+  width: 0; height: 2px;
+  background: var(--grad-rose); transition: width 0.45s;
+}
+.review-card:hover { background: var(--rose-pale); border-color: var(--border-m); transform: translateY(-4px); box-shadow: 0 12px 36px rgba(192,88,90,0.1); }
+.review-card:hover::after { width: 100%; }
+.stars { letter-spacing: 3px; margin-bottom: 12px; font-size: 0.85rem; }
+.stars .s { color: var(--rose); }
+.stars .rn { color: var(--text-muted); font-size: 0.72rem; letter-spacing: 0.05em; margin-left: 6px; }
+.review-body { color: var(--text-sub); font-size: 0.9rem; line-height: 1.95; margin-bottom: 16px; font-style: italic; font-family: 'Cormorant Infant', serif; font-size: 1rem; }
+.review-author { display: flex; align-items: center; gap: 10px; font-size: 0.8rem; font-weight: 700; color: var(--brown-mid); border-top: 1px solid rgba(192,88,90,0.12); padding-top: 12px; }
+.review-author::before { content: ''; width: 18px; height: 1px; background: var(--rose); flex-shrink: 0; }
+
+.faq-section { background: var(--cream-2); position: relative; }
+.faq-section::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--rose) 40%, var(--rose-l) 60%, transparent); opacity: 0.18;
+}
+.faq-list { display: flex; flex-direction: column; gap: 9px; }
+.faq-item {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 12px; overflow: hidden; transition: border-color 0.2s;
+  box-shadow: 0 2px 8px rgba(192,88,90,0.05);
+}
+.faq-item:hover { border-color: var(--border-m); }
+.faq-q {
+  width: 100%; background: none; border: none;
+  padding: 18px 22px; color: var(--text);
+  font-family: 'Noto Serif TC', serif;
+  font-size: 0.93rem; font-weight: 600;
+  text-align: left; cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  letter-spacing: 0.03em; transition: color 0.2s;
+}
+.faq-q:hover { color: var(--rose); }
+.fq-icon { font-size: 1.2rem; flex-shrink: 0; transition: transform 0.3s, color 0.2s; color: var(--rose); font-style: normal; }
+.faq-item.open .fq-icon { transform: rotate(45deg); color: var(--rose-deep); }
+.faq-a {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.16,1,0.3,1), padding 0.3s;
+  padding: 0 22px; color: var(--text-sub);
+  font-size: 0.88rem; line-height: 1.9;
+  border-top: 1px solid transparent;
+}
+.faq-item.open .faq-a { max-height: 300px; padding: 4px 22px 18px; border-top-color: rgba(192,88,90,0.1); }
+
+.contact-section {
+  background: var(--cream); padding: var(--gap) 24px;
+  text-align: center; position: relative;
+}
+.contact-section::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--rose) 35%, var(--rose-l) 65%, transparent); opacity: 0.2;
+}
+.contact-inner { max-width: 560px; margin: 0 auto; }
+
+.contact-highlight {
+  background: var(--grad-rose);
+  border-radius: var(--r); padding: 24px 22px; margin-bottom: 24px;
+  color: #fff; text-align: center;
+  box-shadow: 0 8px 30px rgba(192,88,90,0.35);
+}
+.contact-highlight p { font-size: 0.82rem; opacity: 0.9; margin-bottom: 10px; letter-spacing: 0.06em; }
+.contact-highlight strong { display: block; font-size: 1.05rem; margin-bottom: 4px; font-family: 'Playfair Display', serif; }
+.contact-highlight a {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,0.22); color: #fff; text-decoration: none;
+  border: 1.5px solid rgba(255,255,255,0.5); border-radius: 999px;
+  padding: 9px 24px; font-size: 0.88rem; font-weight: 700;
+  letter-spacing: 0.08em; transition: all 0.3s;
+}
+.contact-highlight a:hover { background: rgba(255,255,255,0.38); transform: translateY(-2px); }
+
+.contact-info-list {
+  list-style: none; margin: 0 0 32px; text-align: left;
+  background: var(--white);
+  border: 1px solid var(--border); border-radius: var(--r);
+  padding: 8px 20px;
+  box-shadow: 0 4px 20px rgba(192,88,90,0.08);
+}
+.contact-info-list li {
+  padding: 12px 0; border-bottom: 1px solid rgba(192,88,90,0.07);
+  color: var(--text-sub); font-size: 0.92rem;
+  display: flex; align-items: flex-start; gap: 12px; line-height: 1.65;
+}
+.contact-info-list li:last-child { border-bottom: none; }
+.ci-icon { color: var(--rose); font-size: 1rem; flex-shrink: 0; margin-top: 2px; }
+.contact-info-list a { color: var(--rose); text-decoration: none; font-weight: 600; }
+.contact-info-list a:hover { color: var(--rose-deep); }
+.contact-info-list strong { color: var(--text); }
+
+.contact-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.contact-note { margin-top: 28px; color: var(--text-muted); font-size: 0.7rem; letter-spacing: 0.12em; }
+
+.btn-base {
+  display: inline-flex; align-items: center; gap: 8px;
+  text-decoration: none; padding: 13px 28px;
+  border-radius: 999px; font-size: 0.88rem; font-weight: 600;
+  letter-spacing: 0.06em; transition: all 0.3s ease; color: #fff;
+}
+.btn-rose { background: var(--grad-rose); box-shadow: 0 4px 18px rgba(192,88,90,0.3); }
+.btn-rose:hover { opacity: 0.9; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(192,88,90,0.4); }
+.btn-green { background: linear-gradient(135deg, #5a7a52, #7a9a72); box-shadow: 0 4px 18px rgba(90,122,82,0.25); }
+.btn-green:hover { opacity: 0.9; transform: translateY(-2px); }
+.btn-outline {
+  background: transparent; color: var(--rose);
+  border: 2px solid var(--rose); box-shadow: none;
+}
+.btn-outline:hover { background: var(--rose-pale); transform: translateY(-2px); }
+.btn-icon { font-size: 1rem; flex-shrink: 0; }
+
+.site-footer {
+  background: var(--brown);
+  padding: 24px; text-align: center;
+  color: rgba(255,255,255,0.55); font-size: 0.7rem;
+  letter-spacing: 0.12em; border-top: 1px solid rgba(255,255,255,0.08);
+}
+.site-footer strong { color: rgba(255,255,255,0.8); }
+
+.fixed-bar {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(20px);
+  display: flex; z-index: 100; justify-content: center;
+  border-top: 1px solid rgba(192,88,90,0.15);
+  box-shadow: 0 -4px 20px rgba(192,88,90,0.08);
+}
+.fixed-bar a {
+  flex: 0 1 auto; display: flex; align-items: center; justify-content: center;
+  gap: 7px; color: var(--text-sub); text-decoration: none;
+  font-size: 0.77rem; letter-spacing: 0.06em;
+  padding: 12px 32px 14px;
+  transition: all 0.2s;
+  border-right: 1px solid rgba(192,88,90,0.1);
+}
+.fixed-bar a:last-child { border-right: none; }
+.fixed-bar a:hover { background: rgba(192,88,90,0.06); color: var(--rose); }
+.fixed-bar a.fixed-call { font-weight: 700; color: var(--rose-deep); }
+.fbar-icon { font-size: 1.1rem; }
+
+body { padding-bottom: 58px; }
+
+.fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.75s cubic-bezier(0.16,1,0.3,1), transform 0.75s cubic-bezier(0.16,1,0.3,1); }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+.stagger > * { opacity: 0; transform: translateY(24px); transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1); }
+.stagger.visible > *:nth-child(1) { opacity:1; transform:none; transition-delay:.04s; }
+.stagger.visible > *:nth-child(2) { opacity:1; transform:none; transition-delay:.10s; }
+.stagger.visible > *:nth-child(3) { opacity:1; transform:none; transition-delay:.16s; }
+.stagger.visible > *:nth-child(4) { opacity:1; transform:none; transition-delay:.22s; }
+.stagger.visible > *:nth-child(5) { opacity:1; transform:none; transition-delay:.28s; }
+.stagger.visible > *:nth-child(6) { opacity:1; transform:none; transition-delay:.34s; }
+.stagger.visible > *:nth-child(7) { opacity:1; transform:none; transition-delay:.40s; }
+
+.back-to-top {
+  position: fixed; bottom: 80px; right: 20px;
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--grad-rose);
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s, transform 0.2s;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(192,88,90,0.45);
+  z-index: 9999; font-size: 1.3rem; color: #fff;
+}
+.back-to-top.show { opacity: 1; visibility: visible; }
+.back-to-top:hover { transform: scale(1.1) translateY(-3px); }
+
+@media (max-width: 640px) {
+  :root { --gap: 60px; }
+  .section { padding: var(--gap) 18px; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; }
+  .gallery-item:first-child { grid-column: span 2; grid-row: span 1; }
+  .trust-badges { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .products-grid { grid-template-columns: 1fr; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .review-agg { flex-direction: column; gap: 8px; text-align: center; }
+  .fixed-bar a { flex: 1; padding: 12px 6px 14px; font-size: 0.7rem; }
+}
+@media (min-width: 641px) {
+  .reviews-grid { grid-template-columns: repeat(3, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-petals" aria-hidden="true">
+    <div class="petal" style="left:8%;bottom:10%;animation-duration:9s;animation-delay:0s;font-size:1.4rem;">🌸</div>
+    <div class="petal" style="left:18%;bottom:5%;animation-duration:11s;animation-delay:1.5s;font-size:1rem;">🌺</div>
+    <div class="petal" style="left:30%;bottom:15%;animation-duration:8s;animation-delay:3s;font-size:0.9rem;">🌹</div>
+    <div class="petal" style="left:70%;bottom:8%;animation-duration:10s;animation-delay:0.8s;font-size:1.2rem;">🌸</div>
+    <div class="petal" style="left:82%;bottom:12%;animation-duration:7s;animation-delay:2s;font-size:1rem;">🌺</div>
+    <div class="petal" style="left:92%;bottom:5%;animation-duration:12s;animation-delay:4s;font-size:0.85rem;">🌹</div>
+    <div class="petal" style="left:50%;bottom:18%;animation-duration:9.5s;animation-delay:1s;font-size:0.8rem;">🌸</div>
+    <div class="petal" style="left:60%;bottom:3%;animation-duration:8.5s;animation-delay:2.5s;font-size:1.1rem;">🌺</div>
+  </div>
+
+  <div class="header-inner">
+    <div class="header-badge">✿ 台中潭子區 · 用花傳遞心意 ✿</div>
+
+    <div class="header-logo-wrap">
+      <div class="logo-ring"></div>
+      <div class="logo-circle">💐</div>
+    </div>
+
+    <h1 class="header-title">小孟<span>花店</span></h1>
+    <p class="header-en">Xiao Meng Flower Studio</p>
+
+    <div class="header-tagline">新鮮花束 · 節慶花藝 · 婚禮佈置 · 訂製花禮</div>
+
+    <div class="header-rating">
+      <span class="stars-sm" aria-hidden="true">★★★★★</span>
+      <span><strong>4.9</strong> / 5.0 &nbsp;·&nbsp; 800＋ 則真實好評</span>
+    </div>
+
+    <div class="floral-orn"><span>❀ ❀ ❀ ❀ ❀</span></div>
+  </div>
+</header>
+
+
+<nav class="services-strip" aria-label="主要服務項目">
+  <div class="services-inner">
+    <span class="service-pill">🌹 精緻花束</span>
+    <span class="service-pill">💍 婚禮花藝</span>
+    <span class="service-pill">🎁 節慶花禮</span>
+    <span class="service-pill">🎍 盆栽植物</span>
+    <span class="service-pill">🎊 活動佈置</span>
+    <span class="service-pill">📦 訂製禮盒</span>
+    <span class="service-pill">📍 潭子區豐富路</span>
+    <span class="service-pill">⭐ Google 4.9 星</span>
+  </div>
+</nav>
+
+
+<section class="gallery-section" id="gallery" aria-label="小孟花店作品集">
+  <div class="gallery-wrapper">
+    <p class="section-eyebrow">Floral Gallery</p>
+    <h2 class="section-title-zh">花藝作品集・每束花都是一份心意</h2>
+    <div class="section-divider"><span>❀</span></div>
+
+    <div class="gallery-grid stagger">
+
+      
+      <div class="gallery-item">
+        <svg class="fp" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="bg1" cx="50%" cy="50%"><stop offset="0%" stop-color="#fdf0f0"/><stop offset="100%" stop-color="#f0ddd8"/></radialGradient>
+          </defs>
+          <rect width="600" height="520" fill="url(#bg1)"/>
+      
+          <g transform="translate(200,230)">
+            <circle r="60" fill="#c0585a" opacity=".9"/>
+            <circle r="48" fill="#d4787a" opacity=".7"/>
+            <circle r="35" fill="#e8a0a0" opacity=".8"/>
+            <circle r="22" fill="#f8d0d0"/>
+            <circle r="10" fill="#fff" opacity=".5"/>
+            
+            <ellipse cx="0" cy="-72" rx="22" ry="34" fill="#c0585a" opacity=".7" transform="rotate(0)"/>
+            <ellipse cx="0" cy="-72" rx="22" ry="34" fill="#c0585a" opacity=".7" transform="rotate(45)"/>
+            <ellipse cx="0" cy="-72" rx="22" ry="34" fill="#c0585a" opacity=".7" transform="rotate(90)"/>
+            <ellipse cx="0" cy="-72" rx="22" ry="34" fill="#c0585a" opacity=".7" transform="rotate(135)"/>
+            <ellipse cx="0" cy="-72" rx="22" ry="34" fill="#c0585a" opacity=".7" transform="rotate(180)"/>
+            <ellipse cx="0" cy="-72" rx="22" ry="34" fill="#c0585a" opacity=".7" transform="rotate(225)"/>
+            <ellipse cx="0" cy="-72" rx="22" ry="34" fill="#c0585a" opacity=".7" transform="rotate(270)"/>
+            <ellipse cx="0" cy="-72" rx="22" ry="34" fill="#c0585a" opacity=".7" transform="rotate(315)"/>
+          </g>
+          
+          <g transform="translate(390,180)">
+            <circle r="50" fill="#d4787a" opacity=".85"/>
+            <circle r="38" fill="#e8a0a0" opacity=".7"/>
+            <circle r="24" fill="#f8d0d0"/>
+            <ellipse cx="0" cy="-60" rx="18" ry="28" fill="#d4787a" opacity=".65" transform="rotate(0)"/>
+            <ellipse cx="0" cy="-60" rx="18" ry="28" fill="#d4787a" opacity=".65" transform="rotate(60)"/>
+            <ellipse cx="0" cy="-60" rx="18" ry="28" fill="#d4787a" opacity=".65" transform="rotate(120)"/>
+            <ellipse cx="0" cy="-60" rx="18" ry="28" fill="#d4787a" opacity=".65" transform="rotate(180)"/>
+            <ellipse cx="0" cy="-60" rx="18" ry="28" fill="#d4787a" opacity=".65" transform="rotate(240)"/>
+            <ellipse cx="0" cy="-60" rx="18" ry="28" fill="#d4787a" opacity=".65" transform="rotate(300)"/>
+          </g>
+          
+          <path d="M200,350 Q180,420 160,480" stroke="#5a7a52" stroke-width="4" fill="none"/>
+          <ellipse cx="170" cy="400" rx="28" ry="14" fill="#7a9a72" opacity=".7" transform="rotate(-30,170,400)"/>
+          <path d="M390,280 Q410,350 400,440" stroke="#5a7a52" stroke-width="4" fill="none"/>
+          <ellipse cx="405" cy="340" rx="24" ry="12" fill="#7a9a72" opacity=".65" transform="rotate(20,405,340)"/>
+          
+          <g transform="translate(300,130)">
+            <circle r="18" fill="#f8c8c8"/>
+            <ellipse cx="0" cy="-22" rx="9" ry="14" fill="#f8c8c8" opacity=".8" transform="rotate(0)"/>
+            <ellipse cx="0" cy="-22" rx="9" ry="14" fill="#f8c8c8" opacity=".8" transform="rotate(72)"/>
+            <ellipse cx="0" cy="-22" rx="9" ry="14" fill="#f8c8c8" opacity=".8" transform="rotate(144)"/>
+            <ellipse cx="0" cy="-22" rx="9" ry="14" fill="#f8c8c8" opacity=".8" transform="rotate(216)"/>
+            <ellipse cx="0" cy="-22" rx="9" ry="14" fill="#f8c8c8" opacity=".8" transform="rotate(288)"/>
+            <circle r="7" fill="#fff"/>
+          </g>
+          
+          <ellipse cx="100" cy="150" rx="8" ry="14" fill="#e8a0a0" opacity=".3" transform="rotate(25,100,150)"/>
+          <ellipse cx="500" cy="380" rx="7" ry="12" fill="#c0585a" opacity=".25" transform="rotate(-15,500,380)"/>
+          <ellipse cx="80" cy="350" rx="6" ry="10" fill="#d4787a" opacity=".3" transform="rotate(40,80,350)"/>
+          <ellipse cx="520" cy="120" rx="9" ry="15" fill="#f8c8c8" opacity=".4" transform="rotate(-30,520,120)"/>
+          
+          <text x="300" y="490" text-anchor="middle" font-family="serif" font-size="18" fill="#8b3a3c" opacity=".7" letter-spacing="4">精緻玫瑰花束</text>
+        </svg>
+        <div class="gallery-overlay"><span>🌹 查看更多作品</span></div>
+      </div>
+
+      
+      <div class="gallery-item">
+        <svg class="fp" viewBox="0 0 300 260" xmlns="http://www.w3.org/2000/svg">
+          <rect width="300" height="260" fill="#f0ede5"/>
+          <g transform="translate(150,120)">
+            
+            <circle r="38" fill="#f5c842"/>
+            <circle r="24" fill="#8b5e1a"/>
+            <ellipse cx="0" cy="-52" rx="16" ry="28" fill="#f5c842" opacity=".8" transform="rotate(0)"/>
+            <ellipse cx="0" cy="-52" rx="16" ry="28" fill="#f5c842" opacity=".8" transform="rotate(45)"/>
+            <ellipse cx="0" cy="-52" rx="16" ry="28" fill="#f5c842" opacity=".8" transform="rotate(90)"/>
+            <ellipse cx="0" cy="-52" rx="16" ry="28" fill="#f5c842" opacity=".8" transform="rotate(135)"/>
+            <ellipse cx="0" cy="-52" rx="16" ry="28" fill="#f5c842" opacity=".8" transform="rotate(180)"/>
+            <ellipse cx="0" cy="-52" rx="16" ry="28" fill="#f5c842" opacity=".8" transform="rotate(225)"/>
+            <ellipse cx="0" cy="-52" rx="16" ry="28" fill="#f5c842" opacity=".8" transform="rotate(270)"/>
+            <ellipse cx="0" cy="-52" rx="16" ry="28" fill="#f5c842" opacity=".8" transform="rotate(315)"/>
+          </g>
+          <path d="M150,158 Q145,200 140,250" stroke="#5a7a52" stroke-width="4" fill="none"/>
+          <ellipse cx="137" cy="195" rx="22" ry="10" fill="#7a9a72" opacity=".6" transform="rotate(-25,137,195)"/>
+          <text x="150" y="248" text-anchor="middle" font-family="serif" font-size="13" fill="#8b5e1a" opacity=".8" letter-spacing="2">向日葵花束</text>
+        </svg>
+        <div class="gallery-overlay"><span>🌻 查看更多</span></div>
+      </div>
+
+      
+      <div class="gallery-item">
+        <svg class="fp" viewBox="0 0 300 260" xmlns="http://www.w3.org/2000/svg">
+          <rect width="300" height="260" fill="#ede8f2"/>
+          
+          <g transform="translate(100,80)">
+            <ellipse cx="0" cy="0" rx="8" ry="28" fill="#9b59b6" opacity=".75"/>
+            <ellipse cx="0" cy="-10" rx="6" ry="18" fill="#b98ee0" opacity=".6"/>
+            <circle cx="0" cy="-28" r="7" fill="#c9a0e8" opacity=".8"/>
+            <circle cx="-5" cy="-20" r="5" fill="#9b59b6" opacity=".7"/>
+            <circle cx="5" cy="-20" r="5" fill="#9b59b6" opacity=".7"/>
+          </g>
+          <g transform="translate(140,65)">
+            <ellipse cx="0" cy="0" rx="8" ry="32" fill="#9b59b6" opacity=".8"/>
+            <ellipse cx="0" cy="-12" rx="6" ry="20" fill="#b98ee0" opacity=".6"/>
+            <circle cx="0" cy="-32" r="8" fill="#c9a0e8"/>
+            <circle cx="-6" cy="-22" r="5" fill="#9b59b6" opacity=".7"/>
+            <circle cx="6" cy="-22" r="5" fill="#9b59b6" opacity=".7"/>
+          </g>
+          <g transform="translate(180,75)">
+            <ellipse cx="0" cy="0" rx="8" ry="26" fill="#9b59b6" opacity=".7"/>
+            <ellipse cx="0" cy="-8" rx="6" ry="16" fill="#b98ee0" opacity=".55"/>
+            <circle cx="0" cy="-26" r="7" fill="#c9a0e8" opacity=".85"/>
+          </g>
+          <path d="M100,108 Q120,160 130,240" stroke="#5a7a52" stroke-width="3" fill="none"/>
+          <path d="M140,97 Q145,160 150,240" stroke="#5a7a52" stroke-width="3" fill="none"/>
+          <path d="M180,101 Q175,160 168,240" stroke="#5a7a52" stroke-width="3" fill="none"/>
+          <ellipse cx="105" cy="155" rx="20" ry="9" fill="#7a9a72" opacity=".55" transform="rotate(-20,105,155)"/>
+          <ellipse cx="165" cy="175" rx="18" ry="8" fill="#7a9a72" opacity=".5" transform="rotate(15,165,175)"/>
+          <text x="150" y="252" text-anchor="middle" font-family="serif" font-size="13" fill="#6b3fa0" opacity=".8" letter-spacing="2">薰衣草花束</text>
+        </svg>
+        <div class="gallery-overlay"><span>💜 查看更多</span></div>
+      </div>
+
+      
+      <div class="gallery-item">
+        <svg class="fp" viewBox="0 0 300 260" xmlns="http://www.w3.org/2000/svg">
+          <rect width="300" height="260" fill="#fdf6f0"/>
+         
+          <g transform="translate(110,100)">
+            <ellipse cx="0" cy="0" rx="22" ry="35" fill="#e85d8a"/>
+            <ellipse cx="-18" cy="5" rx="15" ry="32" fill="#d44a78" opacity=".8"/>
+            <ellipse cx="18" cy="5" rx="15" ry="32" fill="#f07ca0" opacity=".8"/>
+            <ellipse cx="0" cy="-30" rx="12" ry="18" fill="#f8b0c8" opacity=".5"/>
+          </g>
+          <g transform="translate(165,85)">
+            <ellipse cx="0" cy="0" rx="20" ry="32" fill="#f07ca0"/>
+            <ellipse cx="-16" cy="5" rx="13" ry="29" fill="#e85d8a" opacity=".75"/>
+            <ellipse cx="16" cy="5" rx="13" ry="29" fill="#f8a8c0" opacity=".75"/>
+          </g>
+          <path d="M110,135 Q108,185 105,245" stroke="#5a7a52" stroke-width="4" fill="none"/>
+          <path d="M165,117 Q163,170 160,245" stroke="#5a7a52" stroke-width="4" fill="none"/>
+          <ellipse cx="100" cy="185" rx="22" ry="10" fill="#7a9a72" opacity=".6" transform="rotate(-20,100,185)"/>
+          <ellipse cx="168" cy="175" rx="20" ry="9" fill="#7a9a72" opacity=".55" transform="rotate(15,168,175)"/>
+          <text x="150" y="252" text-anchor="middle" font-family="serif" font-size="13" fill="#c0406a" opacity=".8" letter-spacing="2">鬱金香花束</text>
+        </svg>
+        <div class="gallery-overlay"><span>🌷 查看更多</span></div>
+      </div>
+
+      
+      <div class="gallery-item">
+        <svg class="fp" viewBox="0 0 300 260" xmlns="http://www.w3.org/2000/svg">
+          <rect width="300" height="260" fill="#f0f8f0"/>
+          
+          <g transform="translate(150,115)">
+            <ellipse cx="0" cy="-55" rx="18" ry="38" fill="#fff8f0" opacity=".9" transform="rotate(0)"/>
+            <ellipse cx="0" cy="-55" rx="18" ry="38" fill="#fff0e8" opacity=".85" transform="rotate(60)"/>
+            <ellipse cx="0" cy="-55" rx="18" ry="38" fill="#fff8f0" opacity=".9" transform="rotate(120)"/>
+            <ellipse cx="0" cy="-55" rx="18" ry="38" fill="#fff0e8" opacity=".85" transform="rotate(180)"/>
+            <ellipse cx="0" cy="-55" rx="18" ry="38" fill="#fff8f0" opacity=".9" transform="rotate(240)"/>
+            <ellipse cx="0" cy="-55" rx="18" ry="38" fill="#fff0e8" opacity=".85" transform="rotate(300)"/>
+            <circle r="20" fill="#f5c842"/>
+            <circle r="10" fill="#f0a830"/>
+            
+            <line x1="0" y1="-10" x2="0" y2="-30" stroke="#f0a830" stroke-width="1.5"/>
+            <line x1="-8" y1="-8" x2="-20" y2="-24" stroke="#f0a830" stroke-width="1.5"/>
+            <line x1="8" y1="-8" x2="20" y2="-24" stroke="#f0a830" stroke-width="1.5"/>
+          </g>
+          <path d="M150,170 Q148,205 145,248" stroke="#5a7a52" stroke-width="4" fill="none"/>
+          <ellipse cx="140" cy="210" rx="24" ry="10" fill="#7a9a72" opacity=".6" transform="rotate(-15,140,210)"/>
+          <text x="150" y="254" text-anchor="middle" font-family="serif" font-size="13" fill="#5a7a52" opacity=".8" letter-spacing="2">百合花束</text>
+        </svg>
+        <div class="gallery-overlay"><span>🌼 查看更多</span></div>
+      </div>
+
+      <div class="gallery-item">
+        <svg class="fp" viewBox="0 0 300 260" xmlns="http://www.w3.org/2000/svg">
+          <rect width="300" height="260" fill="#fdf4e8"/>
+          
+          <g transform="translate(100,110)">
+            <circle r="28" fill="#c0585a" opacity=".85"/>
+            <ellipse cx="0" cy="-36" rx="14" ry="22" fill="#c0585a" opacity=".7" transform="rotate(0)"/>
+            <ellipse cx="0" cy="-36" rx="14" ry="22" fill="#c0585a" opacity=".7" transform="rotate(72)"/>
+            <ellipse cx="0" cy="-36" rx="14" ry="22" fill="#c0585a" opacity=".7" transform="rotate(144)"/>
+            <ellipse cx="0" cy="-36" rx="14" ry="22" fill="#c0585a" opacity=".7" transform="rotate(216)"/>
+            <ellipse cx="0" cy="-36" rx="14" ry="22" fill="#c0585a" opacity=".7" transform="rotate(288)"/>
+            <circle r="12" fill="#f8d0d0"/>
+          </g>
+          <g transform="translate(185,95)">
+            <circle r="22" fill="#f07ca0"/>
+            <ellipse cx="0" cy="-28" rx="11" ry="18" fill="#f07ca0" opacity=".7" transform="rotate(0)"/>
+            <ellipse cx="0" cy="-28" rx="11" ry="18" fill="#f07ca0" opacity=".7" transform="rotate(90)"/>
+            <ellipse cx="0" cy="-28" rx="11" ry="18" fill="#f07ca0" opacity=".7" transform="rotate(180)"/>
+            <ellipse cx="0" cy="-28" rx="11" ry="18" fill="#f07ca0" opacity=".7" transform="rotate(270)"/>
+            <circle r="8" fill="#fff"/>
+          </g>
+          <g transform="translate(155,155)">
+            <circle r="14" fill="#f5c842"/>
+            <ellipse cx="0" cy="-20" rx="8" ry="14" fill="#f5c842" opacity=".8" transform="rotate(0)"/>
+            <ellipse cx="0" cy="-20" rx="8" ry="14" fill="#f5c842" opacity=".8" transform="rotate(72)"/>
+            <ellipse cx="0" cy="-20" rx="8" ry="14" fill="#f5c842" opacity=".8" transform="rotate(144)"/>
+            <ellipse cx="0" cy="-20" rx="8" ry="14" fill="#f5c842" opacity=".8" transform="rotate(216)"/>
+            <ellipse cx="0" cy="-20" rx="8" ry="14" fill="#f5c842" opacity=".8" transform="rotate(288)"/>
+            <circle r="5" fill="#8b5e1a"/>
+          </g>
+          <path d="M100,138 Q110,190 115,248" stroke="#5a7a52" stroke-width="3" fill="none"/>
+          <path d="M185,117 Q182,175 178,248" stroke="#5a7a52" stroke-width="3" fill="none"/>
+          <ellipse cx="105" cy="185" rx="20" ry="9" fill="#7a9a72" opacity=".55" transform="rotate(-20,105,185)"/>
+          <text x="150" y="254" text-anchor="middle" font-family="serif" font-size="13" fill="#8b3a3c" opacity=".8" letter-spacing="2">混合花束</text>
+        </svg>
+        <div class="gallery-overlay"><span>💐 查看更多</span></div>
+      </div>
+
+      
+      <div class="gallery-item">
+        <svg class="fp" viewBox="0 0 300 260" xmlns="http://www.w3.org/2000/svg">
+          <rect width="300" height="260" fill="#f2f5f0"/>
+          
+          <g transform="translate(150,140)">
+            <ellipse cx="0" cy="-40" rx="30" ry="48" fill="#7a9a72" opacity=".85"/>
+            <ellipse cx="-45" cy="-20" rx="28" ry="42" fill="#5a7a52" opacity=".8" transform="rotate(35,-45,-20)"/>
+            <ellipse cx="45" cy="-20" rx="28" ry="42" fill="#6b8a62" opacity=".75" transform="rotate(-35,45,-20)"/>
+            <ellipse cx="-30" cy="15" rx="22" ry="35" fill="#7a9a72" opacity=".7" transform="rotate(55,-30,15)"/>
+            <ellipse cx="30" cy="15" rx="22" ry="35" fill="#5a7a52" opacity=".7" transform="rotate(-55,30,15)"/>
+            <ellipse cx="0" cy="-40" rx="18" ry="30" fill="#9aba92" opacity=".6"/>
+            <ellipse cx="0" cy="-52" rx="10" ry="18" fill="#b4d4aa" opacity=".55"/>
+          </g>
+          <ellipse cx="150" cy="175" rx="30" ry="12" fill="#8b6a3a" opacity=".4"/>
+          <text x="150" y="252" text-anchor="middle" font-family="serif" font-size="13" fill="#3d5c36" opacity=".8" letter-spacing="2">多肉植物盆栽</text>
+        </svg>
+        <div class="gallery-overlay"><span>🎍 查看更多</span></div>
+      </div>
+
+     
+      <div class="gallery-item">
+        <svg class="fp" viewBox="0 0 300 260" xmlns="http://www.w3.org/2000/svg">
+          <rect width="300" height="260" fill="#fef4f8"/>
+          
+          <rect x="75" y="155" width="150" height="90" rx="8" fill="#f5e8e8" stroke="#c0585a" stroke-width="2"/>
+          <rect x="75" y="155" width="150" height="30" rx="8" fill="#c0585a" opacity=".85"/>
+          <line x1="150" y1="155" x2="150" y2="245" stroke="#c0585a" stroke-width="3"/>
+          <path d="M150,155 Q130,130 120,120 Q110,110 130,115 Q150,120 150,140" fill="#d4787a"/>
+          <path d="M150,155 Q170,130 180,120 Q190,110 170,115 Q150,120 150,140" fill="#c0585a"/>
+          
+          <g transform="translate(120,130)">
+            <circle r="14" fill="#f8c8c8"/>
+            <ellipse cx="0" cy="-18" rx="7" ry="12" fill="#f8c8c8" opacity=".8" transform="rotate(0)"/>
+            <ellipse cx="0" cy="-18" rx="7" ry="12" fill="#e8a0a0" opacity=".8" transform="rotate(72)"/>
+            <ellipse cx="0" cy="-18" rx="7" ry="12" fill="#f8c8c8" opacity=".8" transform="rotate(144)"/>
+            <ellipse cx="0" cy="-18" rx="7" ry="12" fill="#e8a0a0" opacity=".8" transform="rotate(216)"/>
+            <ellipse cx="0" cy="-18" rx="7" ry="12" fill="#f8c8c8" opacity=".8" transform="rotate(288)"/>
+            <circle r="5" fill="#fff"/>
+          </g>
+          <g transform="translate(175,125)">
+            <circle r="12" fill="#c0585a"/>
+            <ellipse cx="0" cy="-16" rx="6" ry="10" fill="#c0585a" opacity=".75" transform="rotate(0)"/>
+            <ellipse cx="0" cy="-16" rx="6" ry="10" fill="#c0585a" opacity=".75" transform="rotate(90)"/>
+            <ellipse cx="0" cy="-16" rx="6" ry="10" fill="#c0585a" opacity=".75" transform="rotate(180)"/>
+            <ellipse cx="0" cy="-16" rx="6" ry="10" fill="#c0585a" opacity=".75" transform="rotate(270)"/>
+            <circle r="4" fill="#f8c8c8"/>
+          </g>
+          <text x="150" y="254" text-anchor="middle" font-family="serif" font-size="13" fill="#8b3a3c" opacity=".8" letter-spacing="2">花禮禮盒</text>
+        </svg>
+        <div class="gallery-overlay"><span>🎁 查看更多</span></div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center; margin-top:32px;">
+      <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:16px; letter-spacing:0.06em;">✿ 每週更新最新花藝作品 · 歡迎來店欣賞 ✿</p>
+      <a class="btn-base btn-rose" href="tel:0425321234">
+        <span class="btn-icon">📞</span> 立即電話預訂
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<section class="about-section" id="about">
+  <div class="section fade-in">
+    <p class="section-eyebrow">About Us</p>
+    <h2 class="section-title-zh">關於小孟花店・用花傳遞每份心意</h2>
+    <div class="section-divider"><span>❀</span></div>
+
+    <div class="trust-badges stagger">
+      <div class="trust-badge">
+        <span class="tb-icon">🌹</span>
+        <span class="tb-value">5,000＋</span>
+        <span class="tb-label">花束訂製服務</span>
+      </div>
+      <div class="trust-badge">
+        <span class="tb-icon">⭐</span>
+        <span class="tb-value">4.9</span>
+        <span class="tb-label">顧客平均評分</span>
+      </div>
+      <div class="trust-badge">
+        <span class="tb-icon">💬</span>
+        <span class="tb-value">800＋</span>
+        <span class="tb-label">真實好評</span>
+      </div>
+    </div>
+
+    <p class="about-lead">
+      <strong>小孟花店</strong>位於台中市潭子區，是一間充滿溫度的在地花藝工作室。從精緻婚禮花藝到日常鮮花花束，我們用<strong>最新鮮的花材</strong>，為您打造每一份獨特的花禮。
+    </p>
+    <p class="about-lead">
+      專精<strong>玫瑰花束、婚禮佈置、節慶花禮</strong>及<strong>客製化訂製花禮</strong>，每次服務都從深度溝通出發，配合您的預算、場合與喜好，量身設計最適合的花藝作品。
+    </p>
+
+    <div class="about-quote">
+      <strong>小孟花店 · 花藝理念</strong>
+      「每一朵花都有它的語言，每一束花都承載一份情感。我們相信，最好的花禮不只是美麗的外觀，更是那份用心傳遞的溫暖心意。歡迎來到小孟花店，讓我們一起找到屬於你的那束花。」
+    </div>
+
+    <div class="info-card fade-in">
+      <div class="info-row">
+        <span class="info-icon">📌</span>
+        <span>台中市<strong>潭子區</strong>豐富路 101 號</span>
+      </div>
+      <div class="info-row">
+        <span class="info-icon">📞</span>
+        <span>電話：<a href="tel:0425321234"><strong>04-2532-1234</strong></a></span>
+      </div>
+      <div class="info-row">
+        <span class="info-icon">🕐</span>
+        <span>營業時間：週一至週六 <strong>09:00 – 20:00</strong>，週日 <strong>10:00 – 18:00</strong></span>
+      </div>
+      <div class="info-row">
+        <span class="info-icon">🚗</span>
+        <span>店內附設停車空間，交通方便</span>
+      </div>
+    </div>
+
+    <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:24px;">
+      <a class="btn-base btn-rose" href="tel:0425321234">
+        <span class="btn-icon">📞</span> 電話預約
+      </a>
+      <a class="btn-base btn-green" href="#contact">
+        <span class="btn-icon">💐</span> 聯絡我們
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<section class="products-section" id="services">
+  <div class="section fade-in">
+    <p class="section-eyebrow">Our Services</p>
+    <h2 class="section-title-zh">服務項目・為你打造每個美好時刻</h2>
+    <div class="section-divider"><span>❀</span></div>
+
+    <div class="products-grid stagger">
+      <div class="product-card">
+        <span class="product-card-icon">🌹</span>
+        <div class="product-card-title">精緻花束設計</div>
+        <div class="product-card-body">玫瑰、鬱金香、百合等各式新鮮花材，依您的喜好與預算客製搭配，每束花都是<strong>獨一無二</strong>的心意表達。</div>
+      </div>
+      <div class="product-card">
+        <span class="product-card-icon">💍</span>
+        <div class="product-card-title">婚禮花藝佈置</div>
+        <div class="product-card-body">從捧花、胸花到整體會場佈置，<strong>一站式婚禮花藝服務</strong>，讓您的婚禮充滿浪漫花香與視覺美感。</div>
+      </div>
+      <div class="product-card">
+        <span class="product-card-icon">🎁</span>
+        <div class="product-card-title">節慶花禮訂製</div>
+        <div class="product-card-body">生日、情人節、母親節、開幕花籃……各種重要節慶，我們為您準備<strong>最貼心的花禮方案</strong>。</div>
+      </div>
+      <div class="product-card">
+        <span class="product-card-icon">🎍</span>
+        <div class="product-card-title">盆栽與植物選物</div>
+        <div class="product-card-body">精選觀葉植物、多肉盆栽、蘭花盆景，送禮自用兩相宜，<strong>長久陪伴比鮮花更持久</strong>的美好。</div>
+      </div>
+      <div class="product-card">
+        <span class="product-card-icon">🎊</span>
+        <div class="product-card-title">活動場地花藝</div>
+        <div class="product-card-body">展覽、發表會、開幕典禮等各種活動場地佈置，<strong>大型花藝裝置</strong>，讓您的活動更加出色難忘。</div>
+      </div>
+      <div class="product-card">
+        <span class="product-card-icon">🌸</span>
+        <div class="product-card-title">永生花與乾燥花</div>
+        <div class="product-card-body">不凋謝的美麗，永生花束與乾燥花藝術品，適合<strong>永久保存的紀念禮物</strong>，送給最重要的人。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="reviews-section" id="reviews">
+  <div class="section fade-in">
+    <p class="section-eyebrow">Customer Reviews</p>
+    <h2 class="section-title-zh">真實顧客好評・每份用心都值得被看見</h2>
+    <div class="section-divider"><span>❀</span></div>
+
+    <div class="review-agg">
+      <div>
+        <div class="big-rating">4.9</div>
+        <div class="big-stars">★★★★★</div>
+        <div class="agg-detail">800＋ 則真實顧客評論</div>
+      </div>
+      <div class="agg-desc">台中潭子區好評花店<br>口碑溫馨首選</div>
+    </div>
+
+    <div class="reviews-grid stagger">
+      <div class="review-card">
+        <div class="stars"><span class="s">★★★★★</span><span class="rn">5.0</span></div>
+        <p class="review-body">「訂了生日花束給媽媽，小孟老闆娘超級用心！不只花材新鮮漂亮，還特別搭配媽媽喜歡的顏色，媽媽收到非常感動！以後送禮一定只找這家！」</p>
+        <div class="review-author">陳小雯</div>
+      </div>
+      <div class="review-card">
+        <div class="stars"><span class="s">★★★★★</span><span class="rn">5.0</span></div>
+        <p class="review-body">「婚禮捧花和場地佈置都交給小孟花店，整體超美！老闆娘溝通很細心，把我想要的浪漫感完全呈現出來，賓客都超級稱讚！」</p>
+        <div class="review-author">林佩珊</div>
+      </div>
+      <div class="review-card">
+        <div class="stars"><span class="s">★★★★★</span><span class="rn">5.0</span></div>
+        <p class="review-body">「第一次買花就遇到這麼專業又親切的店！幫我搭配了一束超漂亮的混合花束，對方收到愛不釋手，下次還會再來！🌸」</p>
+        <div class="review-author">黃宇翔</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="faq-section" id="faq">
+  <div class="section fade-in">
+    <p class="section-eyebrow">FAQ</p>
+    <h2 class="section-title-zh">常見問題・花禮 Q&amp;A</h2>
+    <div class="section-divider"><span>❀</span></div>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span>如何預約或訂購花束？</span>
+          <span class="fq-icon" aria-hidden="true">＋</span>
+        </button>
+        <div class="faq-a">
+          <div>可直接電話 <strong>04-2532-1234</strong> 預約，建議節慶前 3–5 天提前預訂，婚禮花藝請至少提前 2 週聯繫，以確保最佳服務品質。</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span>小孟花店在哪裡？如何前往？</span>
+          <span class="fq-icon" aria-hidden="true">＋</span>
+        </button>
+        <div class="faq-a">
+          <div>門市地址為 <strong>台中市潭子區豐富路 101 號</strong>，店內備有停車位，開車十分方便。歡迎來電確認最新停車資訊。</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span>可以客製化花束的顏色與花材嗎？</span>
+          <span class="fq-icon" aria-hidden="true">＋</span>
+        </button>
+        <div class="faq-a">
+          <div>當然可以！我們提供完全客製化的花束設計服務，可根據您的預算、喜好顏色、場合用途量身搭配。歡迎來電或來店諮詢，我們很樂意為您規劃。</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span>有提供外送服務嗎？</span>
+          <span class="fq-icon" aria-hidden="true">＋</span>
+        </button>
+        <div class="faq-a">
+          <div>台中市區及潭子、豐原一帶可提供外送服務，費用視距離而定，詳情請來電 <strong>04-2532-1234</strong> 詢問。</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span>接受哪些付款方式？</span>
+          <span class="fq-icon" aria-hidden="true">＋</span>
+        </button>
+        <div class="faq-a">
+          <div>接受<strong>現金</strong>、<strong>信用卡</strong>、<strong>LINE Pay</strong>、<strong>街口支付</strong>等多種付款方式，讓您消費更便利。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <p class="section-eyebrow">Contact &amp; Visit</p>
+    <h2 class="section-title-zh">聯絡小孟花店・歡迎來店</h2>
+    <div class="section-divider" style="margin:0 auto 32px;"><span>❀</span></div>
+
+    <div class="contact-highlight">
+      <strong>🌹 立即電話預約</strong>
+      <p>親切的服務，等候您的到來。有任何花藝需求，歡迎來電詢問！</p>
+      <a href="tel:0425321234">
+        📞 &nbsp;04-2532-1234
+      </a>
+    </div>
+
+    <ul class="contact-info-list">
+      <li>
+        <span class="ci-icon">📌</span>
+        <span>台中市<strong>潭子區</strong>豐富路 101 號</span>
+      </li>
+      <li>
+        <span class="ci-icon">📞</span>
+        <span>電話：<a href="tel:0425321234"><strong>04-2532-1234</strong></a></span>
+      </li>
+      <li>
+        <span class="ci-icon">🕐</span>
+        <span>週一 ～ 週六：<strong>09:00 – 20:00</strong></span>
+      </li>
+      <li>
+        <span class="ci-icon">🕐</span>
+        <span>週日：<strong>10:00 – 18:00</strong></span>
+      </li>
+      <li>
+        <span class="ci-icon">🚗</span>
+        <span>店內備有<strong>免費停車位</strong></span>
+      </li>
+      <li>
+        <span class="ci-icon">💳</span>
+        <span>接受現金・信用卡・LINE Pay・街口支付</span>
+      </li>
+    </ul>
+
+    <div class="contact-btns">
+      <a class="btn-base btn-rose" href="tel:0425321234">
+        <span class="btn-icon">📞</span> 立即來電
+      </a>
+      <a class="btn-base btn-green" href="https://maps.google.com/?q=台中市潭子區豐富路101號" target="_blank" rel="noopener">
+        <span class="btn-icon">📍</span> Google 地圖導航
+      </a>
+    </div>
+
+    <p class="contact-note">© 2026 小孟花店 · 台中市潭子區豐富路101號 · 04-2532-1234 · 花束訂製・婚禮花藝・節慶花禮</p>
+  </div>
+</section>
+
+
+<footer class="site-footer">
+  <p>© 2026 <strong>小孟花店</strong> · 台中市潭子區豐富路101號 · 電話 04-2532-1234 · 精緻花束 · 婚禮花藝 · 節慶花禮 · 客製訂製</p>
+</footer>
+
+
+<div class="fixed-bar">
+  <a class="fixed-call" href="tel:0425321234">
+    <span class="fbar-icon">📞</span> 04-2532-1234
+  </a>
+  <a href="https://maps.google.com/?q=台中市潭子區豐富路101號" target="_blank" rel="noopener">
+    <span class="fbar-icon">📍</span> 地圖導航
+  </a>
+  <a href="#contact">
+    <span class="fbar-icon">💐</span> 聯絡我們
+  </a>
+</div>
+
+
+<div class="back-to-top" id="backToTop" aria-label="回到頂部">↑</div>
+
+<script>
+  // Intersection Observer for animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.fade-in, .stagger').forEach(el => observer.observe(el));
+
+  // FAQ Accordion
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const open = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+      });
+      if (!open) { item.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
+    });
+  });
+
+  // Back to top
+  (function() {
+    const btn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => { btn.classList.toggle('show', window.scrollY > 200); });
+    btn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    if (window.scrollY > 200) btn.classList.add('show');
+  })();
+</script>
+</body>
+</html>
