@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>小貓貓咖啡廳</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Noto+Serif+TC:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap" rel="stylesheet"/>
+<style>
+
+:root {
+  --cream:    #faf6f1;
+  --warm:     #f2ebe0;
+  --sand:     #e8ddd0;
+  --brown:    #6b4f3a;
+  --espresso: #3a2518;
+  --rose:     #c9897a;
+  --blush:    #e8b4a0;
+  --gold:     #c8a96e;
+  --text:     #3a2d24;
+  --muted:    #8a7060;
+  --white:    #ffffff;
+  --font-serif: 'Playfair Display','Noto Serif TC',Georgia,serif;
+  --font-body:  'Noto Serif TC',serif;
+  --font-italic:'Cormorant Garamond',Georgia,serif;
+  --radius: 16px;
+  --shadow: 0 8px 40px rgba(58,37,24,.10);
+  --shadow-lg: 0 20px 60px rgba(58,37,24,.18);
+  --ease: cubic-bezier(.25,.46,.45,.94);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--cream);color:var(--text);overflow-x:hidden;line-height:1.8}
+img{display:block;width:100%;height:100%;object-fit:cover}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--warm)}
+::-webkit-scrollbar-thumb{background:var(--rose);border-radius:3px}
+
+
+.section-label{
+  font-family:var(--font-italic);font-style:italic;font-size:.85rem;
+  letter-spacing:.22em;color:var(--rose);text-transform:uppercase;margin-bottom:.4rem;
+}
+.section-title{
+  font-family:var(--font-serif);font-size:clamp(2rem,4vw,3rem);font-weight:700;
+  color:var(--espresso);line-height:1.2;margin-bottom:1.6rem;
+}
+.section-title.center{text-align:center}
+.section{padding:100px 7vw}
+
+
+.navbar{
+  position:fixed;top:0;left:0;right:0;z-index:999;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 6vw;height:68px;
+  background:rgba(250,246,241,.92);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(200,169,110,.18);
+  transition:box-shadow .3s;
+}
+.navbar.scrolled{box-shadow:0 4px 24px rgba(58,37,24,.08)}
+.nav-logo{display:flex;align-items:center;gap:.5rem;font-family:var(--font-serif);font-size:1.15rem;font-weight:700;color:var(--espresso)}
+.nav-logo .paw{font-size:1.3rem}
+.nav-links{display:flex;gap:2.2rem}
+.nav-links a{
+  font-size:.88rem;letter-spacing:.1em;color:var(--muted);
+  position:relative;transition:color .3s;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-3px;left:0;right:0;height:1.5px;
+  background:var(--rose);transform:scaleX(0);transform-origin:right;transition:transform .3s var(--ease);
+}
+.nav-links a:hover{color:var(--espresso)}
+.nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
+.nav-toggle{display:none;font-size:1.4rem;cursor:pointer;color:var(--espresso)}
+
+
+.hero{
+  position:relative;height:100vh;min-height:600px;
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
+}
+.hero-bg{position:absolute;inset:0}
+.hero-img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);animation:heroZoom 18s ease-in-out infinite alternate}
+@keyframes heroZoom{from{transform:scale(1.06)}to{transform:scale(1)}}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(160deg,rgba(58,37,24,.55) 0%,rgba(58,37,24,.25) 50%,rgba(201,137,122,.18) 100%);
+}
+.hero-content{
+  position:relative;z-index:2;text-align:center;color:var(--white);
+  animation:fadeUp .9s var(--ease) both;
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.hero-tagline{
+  font-family:var(--font-italic);font-style:italic;font-size:1rem;
+  letter-spacing:.2em;color:rgba(255,255,255,.75);margin-bottom:1.2rem;
+  animation:fadeUp .9s .2s var(--ease) both;
+}
+.hero-title{
+  font-family:var(--font-serif);font-size:clamp(3.2rem,9vw,7rem);
+  font-weight:700;line-height:1.05;margin-bottom:1.2rem;
+  text-shadow:0 4px 24px rgba(58,37,24,.3);
+  animation:fadeUp .9s .35s var(--ease) both;
+}
+.hero-title em{font-style:italic;color:var(--blush)}
+.hero-sub{
+  font-size:1.05rem;letter-spacing:.06em;color:rgba(255,255,255,.82);
+  margin-bottom:2.4rem;animation:fadeUp .9s .5s var(--ease) both;
+}
+.btn-primary{
+  display:inline-block;padding:.9rem 2.6rem;
+  background:var(--rose);color:var(--white);
+  font-family:var(--font-body);font-size:.9rem;letter-spacing:.12em;
+  border-radius:50px;border:2px solid transparent;
+  transition:background .3s,border-color .3s,transform .3s;
+  animation:fadeUp .9s .65s var(--ease) both;
+}
+.btn-primary:hover{background:transparent;border-color:var(--white);transform:translateY(-3px)}
+.hero-scroll{
+  position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);
+  z-index:2;display:flex;flex-direction:column;align-items:center;gap:.6rem;
+  color:rgba(255,255,255,.6);font-size:.75rem;letter-spacing:.18em;
+}
+.scroll-line{
+  width:1px;height:50px;background:rgba(255,255,255,.4);
+  animation:scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse{0%,100%{opacity:.4;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.2)}}
+
+
+.about{
+  background:var(--white);
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
+}
+.about-desc{color:var(--muted);margin-bottom:1rem;font-size:.97rem}
+.about-stats{display:flex;gap:2.5rem;margin-top:2.2rem}
+.stat{display:flex;flex-direction:column}
+.stat-num{font-family:var(--font-serif);font-size:2.4rem;font-weight:700;color:var(--rose);line-height:1}
+.stat-label{font-size:.8rem;color:var(--muted);letter-spacing:.08em;margin-top:.3rem}
+.about-img-wrap{position:relative}
+.about-img{
+  border-radius:var(--radius);height:520px;object-fit:cover;
+  box-shadow:var(--shadow-lg);position:relative;z-index:1;
+}
+.about-img-deco{
+  position:absolute;bottom:-20px;right:-20px;width:60%;height:70%;
+  border:2px solid var(--sand);border-radius:var(--radius);z-index:0;
+}
+
+
+.menu{background:var(--cream)}
+.menu-header{text-align:center;margin-bottom:3.5rem}
+.menu-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:28px;
+}
+.menu-card{
+  background:var(--white);border-radius:var(--radius);overflow:hidden;
+  box-shadow:var(--shadow);transition:transform .35s var(--ease),box-shadow .35s;
+}
+.menu-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg)}
+.menu-card-img{position:relative;height:210px;overflow:hidden}
+.menu-card-img img{transition:transform .5s var(--ease)}
+.menu-card:hover .menu-card-img img{transform:scale(1.06)}
+.menu-badge{
+  position:absolute;top:14px;left:14px;
+  padding:.25rem .75rem;border-radius:20px;
+  background:var(--rose);color:var(--white);
+  font-size:.72rem;letter-spacing:.1em;
+}
+.menu-badge.new{background:var(--gold)}
+.menu-card-body{padding:1.4rem 1.6rem 1.6rem}
+.menu-card-body h3{font-family:var(--font-serif);font-size:1.15rem;color:var(--espresso);margin-bottom:.5rem}
+.menu-card-body p{font-size:.87rem;color:var(--muted);line-height:1.7}
+.menu-price{
+  display:inline-block;margin-top:.9rem;
+  font-family:var(--font-serif);font-size:1.1rem;color:var(--brown);font-weight:700;
+}
+
+
+.gallery{background:var(--warm)}
+.gallery-header{text-align:center;margin-bottom:3rem}
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  grid-template-rows:auto auto;
+  gap:16px;
+}
+.g-item{position:relative;border-radius:var(--radius);overflow:hidden;cursor:pointer}
+.g-item img{height:240px;transition:transform .5s var(--ease)}
+.g-item:hover img{transform:scale(1.07)}
+.g-large{grid-column:1/3;grid-row:1/3}
+.g-large img{height:496px}
+.g-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(58,37,24,.55) 0%,transparent 50%);
+  display:flex;align-items:flex-end;padding:1.4rem;opacity:0;
+  transition:opacity .35s;
+}
+.g-item:hover .g-overlay{opacity:1}
+.g-overlay span{color:var(--white);font-family:var(--font-serif);font-size:1rem;letter-spacing:.06em}
+
+
+.contact{background:var(--espresso)}
+.contact .section-label{color:var(--blush)}
+.contact .section-title{color:var(--cream)}
+.contact-inner{
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;
+}
+.contact-list{display:flex;flex-direction:column;gap:1.8rem;margin-top:.5rem}
+.contact-list li{display:flex;gap:1.2rem;align-items:flex-start}
+.contact-list .icon{font-size:1.4rem;margin-top:.1rem;flex-shrink:0}
+.contact-list strong{display:block;color:var(--gold);font-size:.85rem;letter-spacing:.1em;margin-bottom:.25rem}
+.contact-list p{color:rgba(250,246,241,.72);font-size:.92rem;line-height:1.6}
+.contact-list a{color:var(--blush);transition:color .3s}
+.contact-list a:hover{color:var(--white)}
+.contact-map{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-lg);position:relative}
+.map-img{height:380px;object-fit:cover;border-radius:var(--radius)}
+.map-label{
+  position:absolute;bottom:0;left:0;right:0;
+  background:rgba(58,37,24,.82);backdrop-filter:blur(6px);
+  color:var(--cream);padding:.8rem 1.2rem;
+  font-family:var(--font-serif);font-size:.95rem;letter-spacing:.06em;
+  display:flex;align-items:center;gap:.5rem;
+}
+
+
+.footer{
+  background:#2a1a0f;text-align:center;
+  padding:2.8rem 6vw;border-top:1px solid rgba(200,169,110,.15);
+}
+.footer-inner{display:flex;flex-direction:column;align-items:center;gap:.6rem}
+.footer-brand{
+  display:flex;align-items:center;gap:.5rem;
+  font-family:var(--font-serif);font-size:1.05rem;font-weight:700;color:var(--cream);
+}
+.footer-brand .paw{font-size:1.2rem}
+.footer-addr{color:var(--muted);font-size:.85rem;letter-spacing:.06em}
+.footer-copy{color:rgba(138,112,96,.55);font-size:.78rem;margin-top:.2rem}
+
+
+@media(max-width:768px){
+  .nav-links{
+    display:none;flex-direction:column;gap:0;
+    position:fixed;top:68px;left:0;right:0;
+    background:rgba(250,246,241,.97);backdrop-filter:blur(12px);
+    padding:1rem 0;border-bottom:1px solid var(--sand);
+    box-shadow:0 8px 24px rgba(58,37,24,.08);
+  }
+  .nav-links.open{display:flex}
+  .nav-links li a{display:block;padding:.9rem 2rem;font-size:.95rem}
+  .nav-toggle{display:block}
+  .about{grid-template-columns:1fr;gap:40px}
+  .about-img-wrap{order:-1}
+  .about-img{height:300px}
+  .about-img-deco{display:none}
+  .contact-inner{grid-template-columns:1fr;gap:40px}
+  .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .g-large{grid-column:1/3;grid-row:auto}
+  .g-large img{height:260px}
+  .g-item img{height:180px}
+  .about-stats{gap:1.5rem}
+  .section{padding:70px 5vw}
+}
+@media(max-width:480px){
+  .gallery-grid{grid-template-columns:1fr}
+  .g-large{grid-column:auto}
+}
+
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.15s}
+.reveal-delay-2{transition-delay:.3s}
+.reveal-delay-3{transition-delay:.45s}
+</style>
+</head>
+<body>
+
+
+<nav class="navbar" id="navbar">
+  <div class="nav-logo">
+    <span class="paw">🐾</span>
+    <span>小貓貓咖啡廳</span>
+  </div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#hero">首頁</a></li>
+    <li><a href="#about">關於我們</a></li>
+    <li><a href="#menu">菜單</a></li>
+    <li><a href="#gallery">空間</a></li>
+    <li><a href="#contact">聯絡我們</a></li>
+  </ul>
+  <div class="nav-toggle" id="navToggle">☰</div>
+</nav>
+
+
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <img src="img/hero.jpg" alt="小貓貓咖啡廳氛圍照" class="hero-img"/>
+    <div class="hero-overlay"></div>
+  </div>
+  <div class="hero-content">
+    <p class="hero-tagline">— 一杯咖啡，一隻貓，一段時光 —</p>
+    <h1 class="hero-title">小貓貓<br/><em>咖啡廳</em></h1>
+    <p class="hero-sub">台中最溫柔的角落，讓貓咪陪你慢下來</p>
+    <a href="#menu" class="btn-primary">探索菜單</a>
+  </div>
+  <div class="hero-scroll">
+    <span>向下探索</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+
+<section class="about section" id="about">
+  <div class="about-text reveal">
+    <p class="section-label">Our Story</p>
+    <h2 class="section-title">關於我們</h2>
+    <p class="about-desc">
+      小貓貓咖啡廳誕生於一個簡單的願望：讓每一位走進來的客人，都能感受到貓咪的溫暖與咖啡的香氣。
+      我們精選莊園單品豆，以慢烘的方式，保留每一顆咖啡豆最純粹的個性。
+    </p>
+    <p class="about-desc">
+      這裡有幾隻自由自在的貓咪，牠們不是表演的道具，而是這個空間真正的主人。
+      你可以靜靜地喝咖啡，也可以等待牠們主動靠近你。
+    </p>
+    <div class="about-stats">
+      <div class="stat reveal reveal-delay-1">
+        <span class="stat-num">12+</span>
+        <span class="stat-label">貓咪夥伴</span>
+      </div>
+      <div class="stat reveal reveal-delay-2">
+        <span class="stat-num">30+</span>
+        <span class="stat-label">精選豆款</span>
+      </div>
+      <div class="stat reveal reveal-delay-3">
+        <span class="stat-num">5年</span>
+        <span class="stat-label">用心經營</span>
+      </div>
+    </div>
+  </div>
+  <div class="about-img-wrap reveal reveal-delay-1">
+    <img src="img/about.webp" alt="咖啡廳溫馨內部" class="about-img"/>
+    
+  </div>
+</section>
+
+
+<section class="menu section" id="menu">
+  <div class="menu-header reveal">
+    <p class="section-label">Menu</p>
+    <h2 class="section-title center">精選菜單</h2>
+  </div>
+  <div class="menu-grid">
+
+    <div class="menu-card reveal">
+      <div class="menu-card-img">
+        <img src="img/menu-latte.jpg" alt="招牌拿鐵"/>
+        <span class="menu-badge">人氣</span>
+      </div>
+      <div class="menu-card-body">
+        <h3>貓掌拉花拿鐵</h3>
+        <p>以義式濃縮為基底，搭配絲滑奶泡，每一杯都有獨特的貓掌拉花。</p>
+        <span class="menu-price">NT$ 160</span>
+      </div>
+    </div>
+
+    <div class="menu-card reveal reveal-delay-1">
+      <div class="menu-card-img">
+        <img src="img/menu-pour.jpg" alt="手沖咖啡"/>
+        <span class="menu-badge new">新品</span>
+      </div>
+      <div class="menu-card-body">
+        <h3>莊園手沖單品</h3>
+        <p>每日精選衣索比亞、瓜地馬拉等莊園豆，保留最原始的風土香氣。</p>
+        <span class="menu-price">NT$ 200</span>
+      </div>
+    </div>
+
+    <div class="menu-card reveal reveal-delay-2">
+      <div class="menu-card-img">
+        <img src="img/menu-cake.jpg" alt="貓咪造型蛋糕"/>
+      </div>
+      <div class="menu-card-body">
+        <h3>貓咪造型蛋糕</h3>
+        <p>每日手工現做，可愛貓咪造型，搭配季節水果與輕盈鮮奶油。</p>
+        <span class="menu-price">NT$ 180</span>
+      </div>
+    </div>
+
+    <div class="menu-card reveal">
+      <div class="menu-card-img">
+        <img src="img/menu-tea.jpg" alt="花草茶"/>
+      </div>
+      <div class="menu-card-body">
+        <h3>輕盈花草茶系列</h3>
+        <p>精選洛神、玫瑰、薰衣草等花草調配，溫柔舒緩每一個午後時光。</p>
+        <span class="menu-price">NT$ 140</span>
+      </div>
+    </div>
+
+    <div class="menu-card reveal reveal-delay-1">
+      <div class="menu-card-img">
+        <img src="img/menu-cold.jpg" alt="冷萃咖啡"/>
+      </div>
+      <div class="menu-card-body">
+        <h3>18小時冷萃咖啡</h3>
+        <p>以低溫長時間萃取，口感滑順圓潤，黑咖啡愛好者的夏日首選。</p>
+        <span class="menu-price">NT$ 175</span>
+      </div>
+    </div>
+
+    <div class="menu-card reveal reveal-delay-2">
+      <div class="menu-card-img">
+        <img src="img/menu-waffle.jpg" alt="比利時鬆餅"/>
+        <span class="menu-badge">推薦</span>
+      </div>
+      <div class="menu-card-body">
+        <h3>比利時厚鬆餅</h3>
+        <p>外酥內軟的比利時鬆餅，搭配濃郁楓糖與新鮮莓果，幸福感滿滿。</p>
+        <span class="menu-price">NT$ 220</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="gallery section" id="gallery">
+  <div class="gallery-header reveal">
+    <p class="section-label">Space</p>
+    <h2 class="section-title center">空間一覽</h2>
+  </div>
+  <div class="gallery-grid">
+    <div class="g-item g-large reveal">
+      <img src="img/gallery-1.jpg" alt="空間主廳"/>
+      <div class="g-overlay"><span>主廳座位</span></div>
+    </div>
+    <div class="g-item reveal reveal-delay-1">
+      <img src="img/gallery-2.jpg" alt="貓咪遊樂區"/>
+      <div class="g-overlay"><span>貓咪遊樂區</span></div>
+    </div>
+    <div class="g-item reveal reveal-delay-2">
+      <img src="img/gallery-3.jpg" alt="手沖吧台"/>
+      <div class="g-overlay"><span>手沖吧台</span></div>
+    </div>
+    <div class="g-item reveal reveal-delay-1">
+      <img src="img/gallery-4.jpg" alt="窗邊雅座"/>
+      <div class="g-overlay"><span>窗邊雅座</span></div>
+    </div>
+    <div class="g-item reveal reveal-delay-2">
+      <img src="img/gallery-5.jpg" alt="我們的貓夥伴"/>
+      <div class="g-overlay"><span>我們的貓夥伴</span></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="contact section" id="contact">
+  <div class="contact-inner">
+    <div class="reveal">
+      <p class="section-label">Find Us</p>
+      <h2 class="section-title">聯絡我們</h2>
+      <ul class="contact-list">
+        <li>
+          <span class="icon">📍</span>
+          <div>
+            <strong>地址</strong>
+            <p>台中市潭子區豐富路101號</p>
+          </div>
+        </li>
+        <li>
+          <span class="icon">📞</span>
+          <div>
+            <strong>電話</strong>
+            <p><a href="tel:0425321234">04-2532-1234</a></p>
+          </div>
+        </li>
+        <li>
+          <span class="icon">🕐</span>
+          <div>
+            <strong>營業時間</strong>
+            <p>週一至週五　10:00 – 20:00</p>
+            <p>週六至週日　09:00 – 21:00</p>
+          </div>
+        </li>
+        <li>
+          <span class="icon">🐾</span>
+          <div>
+            <strong>注意事項</strong>
+            <p>本店貓咪自由活動，請勿強行撫摸。</p>
+            <p>禁止攜帶寵物入場，謝謝配合。</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="contact-map reveal reveal-delay-1">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29110.907536686478!2d120.66404827431639!3d24.211561800000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346917f405d2a167%3A0xac6756b231c738a8!2z56-J6ZaT5bm456aP6Y2L54mpIOa9reWtkOa9reiIiOW6lw!5e0!3m2!1szh-TW!2stw!4v1777041458593!5m2!1szh-TW!2stw" width="600" height="450" 
+       style="border:0;" 
+       allowfullscreen="" 
+       loading="lazy" 
+       referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+      <div class="map-label">
+        <span class="paw">🐾</span> 小貓貓咖啡廳 · 台中市潭子區豐富路101號
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="paw">🐾</span>
+      <span>小貓貓咖啡廳</span>
+    </div>
+    <p class="footer-addr">台中市潭子區豐富路101號　|　04-2532-1234</p>
+    <p class="footer-copy">© 2026 小貓貓咖啡廳 · 用溫柔的貓咪陪你走過每一個當下</p>
+  </div>
+</footer>
+
+<script>
+// ── Navbar scroll shadow ──
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// ── Mobile nav toggle ──
+const toggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+toggle.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+  toggle.textContent = navLinks.classList.contains('open') ? '✕' : '☰';
+});
+navLinks.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    toggle.textContent = '☰';
+  });
+});
+
+// ── Scroll reveal ──
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
